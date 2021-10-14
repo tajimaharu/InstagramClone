@@ -1,0 +1,14 @@
+<h3>内容を確認</h3>
+<%= form_with(model: @instaclone, url: instaclones_path, local:true) do |form|%>
+  <%= form.hidden_field :image %>
+  <%= form.hidden_field :content %>
+  <p>画像:<%= image_tag(@instaclone.image.url) if @instaclone.image && @instaclone.image.url %>
+  <%= form.hidden_field :image_cache %></p>
+  <p>本文:<%= @instaclone.content %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @instaclone, url:new_instaclone_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :image_cache %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>

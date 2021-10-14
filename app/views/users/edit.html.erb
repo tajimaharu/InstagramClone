@@ -1,0 +1,10 @@
+<h1>編集</h1>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit "update my account" %>
+<% end %>
+<%= link_to "戻る", :back %>

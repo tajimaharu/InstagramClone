@@ -1,0 +1,22 @@
+<table>
+  <p><%= notice %></p>
+  <tr>
+    <th>投稿者</th>
+    <th>画像</th>
+    <th>内容</th>
+  </tr>
+<% @instaclones.each do |instaclone| %>
+      <tr>
+        <td><%= instaclone.user.name %></td>
+        <% if  instaclone.image.url.nil? %>
+          <td>NoImage</td>
+        <% else %>
+          <td><%= image_tag instaclone.image.url %></td>
+        <% end %>
+        <td><%= instaclone.content %></td>
+        <td><%= link_to '詳細', instaclone_path(instaclone.id) %></td>
+        <td><%= link_to '編集', edit_instaclone_path(instaclone.id) %></td>
+        <td><%= link_to '削除', instaclone_path(instaclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
+      </tr>
+<% end %>
+</table>

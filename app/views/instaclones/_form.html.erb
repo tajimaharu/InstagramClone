@@ -1,0 +1,24 @@
+<%= form_with(model: @instaclone, local: true ,url: choose_new_or_edit ) do |form| %>
+<% if @instaclone.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @instaclone.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @instaclone.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="post_image">
+    <%= form.label :image %>
+    <%= image_tag(@instaclone.image.url) if @instaclone.image && @instaclone.image.url %>
+    <%= form.file_field :image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+  <div class="post_content">
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit %>
+<% end %>
+<%= link_to "もどる", :back %>
