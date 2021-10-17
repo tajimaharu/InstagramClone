@@ -1,22 +1,23 @@
 <table>
-  <p><%= notice %></p>
-  <tr>
-    <th>投稿者</th>
-    <th>画像</th>
-    <th>内容</th>
-  </tr>
-<% @instaclones.each do |instaclone| %>
-      <tr>
-        <td><%= instaclone.user.name %></td>
+  <div class="container">
+
+  <div class="row">
+    <% @instaclones.each do |instaclone| %>
+      <ul class="col-md-4">
         <% if  instaclone.image.url.nil? %>
-          <td>NoImage</td>
+          <li>NoImage</li>
         <% else %>
-          <td><%= image_tag instaclone.image.url %></td>
+          <li><%= image_tag instaclone.image.url %></li>
         <% end %>
-        <td><%= instaclone.content %></td>
-        <td><%= link_to '詳細', instaclone_path(instaclone.id) %></td>
-        <td><%= link_to '編集', edit_instaclone_path(instaclone.id) %></td>
-        <td><%= link_to '削除', instaclone_path(instaclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
-      </tr>
-<% end %>
+        <li><%= instaclone.content %></li>
+        <li>@<%= instaclone.user.name %></li>
+        <li><%= link_to '詳細', instaclone_path(instaclone.id) %></li>
+        <li><%= link_to '編集', edit_instaclone_path(instaclone.id) %></li>
+        <li><%= link_to '削除', instaclone_path(instaclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></li>
+      </ul>
+    <% end %>
+
+  </div>
+
+  </div>
 </table>
