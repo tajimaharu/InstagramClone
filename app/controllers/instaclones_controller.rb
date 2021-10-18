@@ -1,5 +1,6 @@
 class InstaclonesController < ApplicationController
   before_action :set_instaclone, only: [:show, :edit, :update, :destroy]
+  before_action :ensure_current_user, only: [:edit, :update]
 
   def index
     @instaclones = Instaclone.all
@@ -52,6 +53,13 @@ class InstaclonesController < ApplicationController
     @instaclone.destroy
     redirect_to instaclones_path
   end
+
+  def ensure_current_user
+  if @instaclone.user_id != current_user.id
+    flash[:notice]="権限がありません"
+    redirect_to("/instaclones")
+  end
+end
 
   private
 

@@ -1,0 +1,18 @@
+<h1>お気に入りしたページ</h1>
+<div class="container">
+  <div class="row">
+    <% @favorite_instaclones.each do |fav| %>
+      <tr>
+        <ul class="col-md-4">
+        <% if  fav.instaclone.image.url.nil? %>
+          <li>NoImage</li>
+        <% else %>
+          <li><%= image_tag fav.instaclone.image.url %></li>
+        <% end %>
+          <li><%= fav.instaclone.content %></li>
+          <li>@<%= fav.instaclone.user.name %></li>
+        </ul>
+      </tr>
+    <% end %>
+  </div>
+</div>
