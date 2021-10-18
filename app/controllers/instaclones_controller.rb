@@ -19,7 +19,8 @@ class InstaclonesController < ApplicationController
       render :new
     else
       if @instaclone.save
-        InstacloneMailer.instaclone_mail(@instaclone).deliver
+      # InstacloneMailer.instaclone_mail(@instaclone).deliver
+      #　メール機能をherokuに実装できなかったのでコメントアウト
         redirect_to instaclones_path, notice: "投稿しました"
       else
         render :new
