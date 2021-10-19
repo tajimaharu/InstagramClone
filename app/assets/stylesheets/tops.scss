@@ -32,7 +32,7 @@ header {
   width: 100%;
   background-color: #fff;
   height: 54px;
-  margin: 0 0 3%;
+  margin: 0;
 }
 header ul {
   margin: 0 auto;
@@ -45,13 +45,18 @@ header ul a {
   color: white;
 }
 header li {
-  float: left;
   width: auto;
 }
 header ul:after {
   content: "";
   display: block;
   clear: both;
+}
+header ul .right {
+  float: right;
+}
+header ul .left {
+  float: left;
 }
 footer {
   width: 100%;

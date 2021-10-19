@@ -13,24 +13,23 @@
   <body>
     <header>
       <ul>
-        <li><a href="/instaclones">InstagramCloneApp</a></li>
-        <li><a href="/">トップページ</a></li>
+        <li class="left"><a href="/instaclones">InstagramCloneApp</a></li>
 
-        <li><%= link_to '投稿', new_instaclone_path %></li>
-        <div class="">
-          <% flash.each do |key, value| %>
-            <%= content_tag(:div, value, class: "#{key}") %>
-          <% end %>
+        <li class="left"><%= link_to '投稿', new_instaclone_path %></li>
+
             <% if logged_in? %>
-              <li><%= link_to "Profile", user_path(current_user.id) %></li>
-              <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+              <li class="right"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+              <li class="right"><%= link_to current_user.name, user_path(current_user.id) %></li>
             <% else %>
-              <li><%= link_to "Sign up", new_user_path %></li>
-              <li><%= link_to "Login", new_session_path %></li>
+              <li class="right"><%= link_to "Login", new_session_path %></li> 
+              <li class="right"><%= link_to "Sign up", new_user_path %></li>
           <% end %>
-        </div>
+
       </ul>
     </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
