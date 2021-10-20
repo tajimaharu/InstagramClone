@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :login_required, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :update]
-
+  before_action :ensure_current_user, only: [:show, :edit, :update]
   def new
     @user = User.new
   end
@@ -29,6 +29,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def ensure_current_user
+  if @user.id != current_user.id
+    flash[:notice]="権限がありません"
+    redirect_to("/instaclones")
+  end
+end
 
   private
   def user_params

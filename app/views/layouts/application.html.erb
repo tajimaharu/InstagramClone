@@ -13,7 +13,7 @@
   <body>
     <header>
       <ul>
-        <li class="left"><a href="/instaclones">InstagramCloneApp</a></li>
+        <li class="left"><a href="/">InstagramCloneApp</a></li>
 
         <li class="left"><%= link_to '投稿', new_instaclone_path %></li>
 
@@ -30,6 +30,11 @@
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
+
     <%= yield %>
+
+    <footer>
+      <p>まはる</p>  
+    </footer>
   </body>
 </html>
