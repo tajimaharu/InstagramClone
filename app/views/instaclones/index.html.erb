@@ -12,10 +12,10 @@
         <li><%= instaclone.content %></li>
         <li>@<%= instaclone.user.name %></li>
         <li><%= link_to '詳細', instaclone_path(instaclone.id) %></li>
-        <% if instaclone.user_id==current_user.id %>
+        <% if instaclone.user_id == current_user.id %>
           <li><%= link_to '編集', edit_instaclone_path(instaclone.id) %></li>
         <% end %>
-        <% if instaclone.user_id==current_user.id %>
+        <% if instaclone.user_id == current_user.id %>
           <li><%= link_to '削除', instaclone_path(instaclone.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></li>
         <% end %>
       </ul>
