@@ -11,7 +11,13 @@ require("jquery")
 require("bootstrap/dist/js/bootstrap.min")
 
 import 'bootstrap/dist/css/bootstrap.min';
-import '../stylesheets/application';
+import 'stylesheets/application';
+import 'stylesheets/favorites';
+import 'stylesheets/feeds';
+import 'stylesheets/scaffolds';
+import 'stylesheets/sessions';
+import 'stylesheets/tops';
+import 'stylesheets/users';
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
